@@ -42,3 +42,4 @@ int main() {
 // Recursion depth: Θ(log n)
 // Time complexity: Θ(n^{log₂ 3})
 // Reccurance Relation: T(n/2) = 3T(n/2) + nlog(n)
+
