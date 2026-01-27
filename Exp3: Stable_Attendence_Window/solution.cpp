@@ -1,6 +1,5 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
 int main() {
     int n;
     cin >> n;
@@ -10,11 +9,9 @@ int main() {
         cin >> arr[i];
     }
 
-    unordered_map<int, int> mp;
+    unordered_map<int, int>mp;
     int sum = 0, maxLen = 0;
-
     mp[0] = -1;
-
     for(int i = 0; i < n; i++) {
         if(arr[i] == 'P')
             sum += 1;
@@ -30,4 +27,5 @@ int main() {
     cout << maxLen;
     return 0;
 }
+
 // Time Complexity: O(n)
