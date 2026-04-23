@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trip Planner</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #1e1e2f;
+            color: white;
+            text-align: center;
+        }
+
+        .card {
+            background: #2c2c3e;
+            padding: 20px;
+            margin: 30px auto;
+            width: 350px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 80%;
+        }
+
+        button {
+            padding: 10px;
+            background: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .city-row {
+            margin-bottom: 10px;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+
+    <script>
+        function addRow() {
+            const container = document.getElementById("cities");
+
+            const row = document.createElement("div");
+            row.className = "city-row";
+
+            row.innerHTML = `
+                <input type="text" name="name" placeholder="City">
+                <input type="number" name="cost" placeholder="Cost">
+                <input type="number" name="value" placeholder="Value">
+            `;
+
+            container.appendChild(row);
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🌍 Trip Planner</h2>
+
+    <form method="POST">
+
+        <input type="number" name="budget" placeholder="Enter Budget" required><br>
+
+        <h4>Add Cities</h4>
+
+        <div id="cities">
+            <div class="city-row">
+                <input type="text" name="name" placeholder="City">
+                <input type="number" name="cost" placeholder="Cost">
+                <input type="number" name="value" placeholder="Value">
+            </div>
+        </div>
+
+        <button type="button" onclick="addRow()">➕ Add City</button><br>
+        <button type="submit">Plan Trip</button>
+
+    </form>
+
+    <div class="result">
+        {% if result %}
+            <h3>Trip Plan:</h3>
+            <ul>
+                {% for name, status in result %}
+                    <li>{{ name }} - {{ status }}</li>
+                {% endfor %}
+            </ul>
+            <p><b>Total Enjoyment: {{ total }}</b></p>
+        {% endif %}
+    </div>
+
+</div>
+
+</body>
+</html>
